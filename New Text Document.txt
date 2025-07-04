@@ -1,0 +1,33 @@
+collection of subdomains
+========================
+websites
+
+1- https://subdomainfinder.c99.nl/
+2- https://shrewdeye.app/
+
+
+tools
+0- sublist3r
+sublist3r -d {target.com}
+1- subfinder
+->$ subfinder -d {domain.com} -all --recursive
+2-assetfinder
+->$ echo "domain.com" | assetfinder -subs-only
+3-amass
+->$ amass intel -active -cidr {IP_address/mask}
+
+Fuzz             =====> for gussing or bruteforce subdomain
+==================
+
+->$ ffuf -u https://FUZZ.domain.com -w  wordlist_domains.txt
+files enumeration subdomians  wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+->$ ffuf -u https://example.com -H "Host:FUZZ.example.com"       hidden Host
+->$ ffuf -u https://FUZZ.mars.com -w wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -fc'for filter' 403
+
+for more details
+http://ffuf.me/sub/vhost
+
+===>server vbs segfault
+1)open powershell
+2)type ssh root@segfault.net
+password:segfault
